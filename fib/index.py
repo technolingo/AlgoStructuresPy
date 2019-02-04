@@ -1,5 +1,6 @@
 def memoize(fn):
     cache = {}
+
     def wrapped(*args, **kwargs):
         # use a frozenset for kwargs instead of sorted() + str()
         # to accommodate the greatest number of data types possbile
@@ -11,6 +12,7 @@ def memoize(fn):
         print(cache)
         return result
     return wrapped
+
 
 @memoize
 def fib(n, **kwargs):
@@ -26,8 +28,8 @@ def fib(n, **kwargs):
     return result
 
 
-print(fib(0, name='hello')) # 0
-print(fib(1, name='hello', place='mine')) # 1
-print(fib(2)) # 1
-print(fib(3)) # 2
-print(fib(6)) # 8
+print(fib(0, name='hello'))  # 0
+print(fib(1, name='hello', place='mine'))  # 1
+print(fib(2))  # 1
+print(fib(3))  # 2
+print(fib(6))  # 8
