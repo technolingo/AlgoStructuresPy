@@ -1,7 +1,7 @@
-Common Algorithms and Data Structures Implemented in JavaScript.
+Common Algorithms and Data Structures Implemented in Python.
 
 
 ------------
 
 Related repositories:
-- Python: https://github.com/technolingo/AlgoStructuresPy
+- JavaScript: https://github.com/technolingo/AlgoStructuresJS
