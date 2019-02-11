@@ -1,16 +1,16 @@
-from unittest import TestCase, skip
 import gc
+import pytest
 
-from index import Tree, Node
+from .index import Tree, Node
 
 
-class TreeTestCase(TestCase):
+class TestTree():
 
-    def setUp(self):
+    def setup_method(self):
         self.node = Node('a')
         self.tree = Tree()
 
-    def tearDown(self):
+    def teardown_method(self):
         ''' tearDown doesn't seem to be able to delete lists created in
             each test, thus resulting errors if each test is not run seperately.
             will come back to this when a better solution is found.
@@ -20,34 +20,32 @@ class TreeTestCase(TestCase):
         del self.node
         gc.collect()
 
-    @skip
     def test_node_properties(self):
-        self.assertEqual(self.node.data, 'a')
-        self.assertEqual(self.node.children, [])
-        self.assertEqual(len(self.node.children), 0)
+        assert self.node.data == 'a'
+        assert self.node.children == []
+        assert len(self.node.children) == 0
 
-    @skip
     def test_node_add_children(self):
         self.node.add('b')
-        self.assertEqual(len(self.node.children), 1)
-        self.assertEqual(self.node.children[0].data, 'b')
-        self.assertEqual(len(self.node.children[0].children), 0)
+        assert len(self.node.children) == 1
+        assert self.node.children[0].data == 'b'
+        assert len(self.node.children[0].children) == 0
 
-    @skip
+    @pytest.mark.skip
     def test_node_remove_children(self):
         self.node.add('b')
         self.node.add('b')
         self.node.add('c')
-        self.assertEqual(len(self.node.children), 3)
+        assert len(self.node.children) == 3
         self.node.remove('b')
-        self.assertEqual(len(self.node.children), 1)
-        self.assertEqual(self.node.children[0].data, 'c')
+        assert len(self.node.children) == 1
+        assert self.node.children[0].data == 'c'
 
-    @skip
+    @pytest.mark.skip
     def test_tree_properties(self):
         self.assertIsNone(self.tree.root)
 
-    @skip
+    @pytest.mark.skip
     def test_tree_traverse_breadth(self):
         letters = []
         self.tree.root = self.node
@@ -57,9 +55,9 @@ class TreeTestCase(TestCase):
 
         def f(node): letters.append(node.data)
         self.tree.traverse_breadth(f)
-        self.assertEqual(letters, ['a', 'b', 'c', 'd'])
+        assert letters == ['a', 'b', 'c', 'd']
 
-    @skip
+    @pytest.mark.skip
     def test_tree_traverse_depth(self):
         letters = []
         self.tree.root = self.node
@@ -69,4 +67,4 @@ class TreeTestCase(TestCase):
 
         def f(node): letters.append(node.data)
         self.tree.traverse_depth(f)
-        self.assertEqual(letters, ['a', 'b', 'c', 'd'])
+        assert letters == ['a', 'b', 'c', 'd']
