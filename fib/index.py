@@ -26,10 +26,3 @@ def fib(n, **kwargs):
         return n
     result = fib(n - 1) + fib(n - 2)
     return result
-
-
-print(fib(0, name='hello'))  # 0
-print(fib(1, name='hello', place='mine'))  # 1
-print(fib(2))  # 1
-print(fib(3))  # 2
-print(fib(6))  # 8
