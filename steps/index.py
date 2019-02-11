@@ -1,6 +1,6 @@
 def steps(n):
-    for i in range(1, n + 1):
-        print('#' * i + ' ' * (n - i))
-
-
-steps(5)
+    if n <= 0:
+        print('Input must be greater than zero.')
+    else:
+        for i in range(1, n + 1):
+            print('#' * i + ' ' * (n - i))
