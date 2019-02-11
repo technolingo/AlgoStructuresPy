@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-from queue import Queue
+from .queue import Queue
 
 
 def weave(queue_one, queue_two):
