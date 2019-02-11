@@ -1,16 +1,17 @@
-def maxChar(string:str) -> str:
+from typing import Dict
+
+
+def max_char(string: str) -> str:
     ''' Return the most frequent character in a string.'''
-    charMap = {}
+    if len(string) == 0:
+        return ''
+
+    char_map: Dict[str, int] = {}
 
     for char in string:
-        if char in charMap:
-            charMap[char] += 1 or 1
+        if char in char_map:
+            char_map[char] += 1
         else:
-            charMap[char] = 1
+            char_map[char] = 1
 
-    return max([(val, char) for char, val in charMap.items()])[1]
-
-print(maxChar('Hello World'))
-print(maxChar('a'))
-print(maxChar('abcdefghijklmnaaaaa'))
-print(maxChar('ab1c1d1e1f1g1'))
+    return max([(val, char) for char, val in char_map.items()])[1]
