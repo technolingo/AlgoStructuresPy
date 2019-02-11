@@ -1,10 +1,14 @@
-def anagrams(string_a: str, string_b: str) -> bool:
-    first = ''.join(sorted(list(string_a.replace(r'[^a-zA-Z]', ''))))
-    second = ''.join(sorted(list(string_b.replace(r'[^a-zA-Z]', ''))))
-    return first == second
+import re
 
-print(anagrams('hello', 'llohe')) # True
-print(anagrams('Whoa! Hi!', 'Hi! Whoa!')) # True
-print(anagrams('One One', 'Two two two')) # False
-print(anagrams('One one', 'One one c')) # False
-print(anagrams('A tree, a life, a bench', 'A tree, a fence, a yard')) # False
+
+def are_anagrams(string_a: str, string_b: str) -> bool:
+    ''' Check to see if two provided strings are anagrams of eachother.
+        One string is an anagram of another if it uses the same characters
+        in the same quantity. Only consider characters, not spaces
+        or punctuation.  Consider capital letters to be the same as lower case
+    '''
+    pattern = re.compile(r'[^a-z]')
+    # convert to lowercase, remove non-alpha chars, sort both strings
+    first = ''.join(sorted(list(pattern.sub('', string_a.lower()))))
+    second = ''.join(sorted(list(pattern.sub('', string_b.lower()))))
+    return first == second
