@@ -35,7 +35,3 @@ def spiral_matrix(n):
         start_col += 1
 
     return matrix
-
-
-for lst in spiral_matrix(5):
-    print(lst)
