@@ -1,5 +1,6 @@
 def midpoint(llst):
-    '''find the midpoint node without using size() or a counter variable'''
+    '''find the midpoint node in a singly-linked list
+        without using size() or a counter variable'''
     if llst.get_first() is None:
         return None
 

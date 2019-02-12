@@ -1,6 +1,15 @@
+'''
+Given a root node, validate the binary search tree,
+ensuring that every node's left hand child is
+less than the parent node's value, and that
+every node's right hand child is greater than
+the parent
+'''
+
+
 class Node:
 
-    def __init__(self, data, left = None, right = None):
+    def __init__(self, data, left=None, right=None):
         self.data = data
         self.left = left
         self.right = right
@@ -20,7 +29,7 @@ class Node:
             raise Exception('Unexpected edge case')
 
 
-def is_binary_search_tree(node, min = None, max = None):
+def is_binary_search_tree(node, min=None, max=None):
     ''' Inital node is the root. Duplicates are not allowed. '''
     if node is None:
         return False

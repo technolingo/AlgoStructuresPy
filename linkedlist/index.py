@@ -1,13 +1,18 @@
+'''
+Implement a singly-linked list. See ./directions.html.
+'''
+
+
 class Node:
 
-    def __init__(self, data, next = None):
+    def __init__(self, data, next=None):
         self.data = data
         self.next = next
 
 
 class LinkedList:
 
-    def __init__(self, head = None):
+    def __init__(self, head=None):
         self.head = head
 
     def clear(self):

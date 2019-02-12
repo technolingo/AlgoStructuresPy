@@ -1,5 +1,5 @@
 def get_nth_node_from_last(llst, n):
-    '''find the n-th node counting from the tail in a linked list,
+    '''find the n-th node counting from the tail in a singly-linked list,
        assuming n is smaller or equal to the length of the linked list.
     '''
     if llst.head is None or n < 0:
