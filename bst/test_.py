@@ -1,9 +1,7 @@
-from unittest import TestCase, skip
-
-from index import Node
+from .index import Node
 
 
-class BinarySearchTreeTestCase(TestCase):
+class TestBinarySearchTree():
 
     def test_insert(self):
         node = Node(10)
@@ -11,9 +9,9 @@ class BinarySearchTreeTestCase(TestCase):
         node.insert(15)
         node.insert(17)
 
-        self.assertEqual(node.left.data, 5)
-        self.assertEqual(node.right.data, 15)
-        self.assertEqual(node.right.right.data, 17)
+        assert node.left.data == 5
+        assert node.right.data == 15
+        assert node.right.right.data == 17
 
     def test_contains_found_node(self):
         node = Node(10)
@@ -25,7 +23,7 @@ class BinarySearchTreeTestCase(TestCase):
         node.insert(3)
 
         three = node.left.left.right
-        self.assertEqual(node.contains(3), three)
+        assert node.contains(3) == three
 
     def test_contains_return_none(self):
         node = Node(10)
@@ -36,4 +34,4 @@ class BinarySearchTreeTestCase(TestCase):
         node.insert(-5)
         node.insert(3)
 
-        self.assertIsNone(node.contains(9999))
+        assert node.contains(9999) is None
